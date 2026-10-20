@@ -32,7 +32,7 @@ A web-based Java banking application integrating secure, session-based authentic
 ## Security & Data Layer:
 
 
-*   **SQL Database**: -- Relational database system used to securely store and persist user credentials and balances.
+*   **PostgreSQL Database**: -- Relational database system used to securely store and persist user credentials and balances.
   
 *   **Connection Factory**: -- Structural design pattern used to establish and manage active SQL database connections.
   

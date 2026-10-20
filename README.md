@@ -36,8 +36,6 @@ A web-based Java banking application integrating secure, session-based authentic
   
 *   **Connection Factory**: -- Structural design pattern used to establish and manage active SQL database connections.
   
-*   **MongoDB**: -- NoSQL database component integrated alongside SQL for alternative data handling.
-  
 *   **XML Schemas**: -- Structure and validation definitions used for data modeling and exchange formats.
 
   

@@ -1,6 +1,6 @@
 # Core Banking Service RESTful CLI
 
-## System Architecture Diagram (Landscape Format)
+## System Architecture Diagram 
 
 ```mermaid
 graph LR

@@ -96,6 +96,12 @@ The repository ships with isolated unit testing suites to ensure system integrit
 * **DAO Verification:** Automated tests validating CRUD operations against account objects.
 * **Connection Stability:** Unit tests enforcing that the database connection factory cleanly signs and terminates active pools.
 
+To run the test suite locally:
+```bash
+./gradlew test
+
+
+```
 ---
 
 ## Technical Challenges & Solutions
@@ -117,12 +123,7 @@ The repository ships with isolated unit testing suites to ensure system integrit
 
 ---
 
-To run the test suite locally:
-```bash
-./gradlew test
 
-
-```
 
 ## ⚙️ Getting Started
 

@@ -2,14 +2,19 @@
 
 ## System Architecture Diagram (Landscape Format)
 
+---
+
+## System Architecture Diagram (Landscape Format)
+*Paste this code snippet directly into the [Mermaid Live Editor](https://mermaid.live) to render and save your landscape diagram.*
+
 ```mermaid
 graph LR
-    %% Styling Definitions
+    %% Styling Definitions for Internal Nodes
     classDef client fill:#2d3748,stroke:#4a5568,stroke-width:2px,color:#fff;
-    classDef controller fill:#2b6cb0,stroke:#2b6cb0,stroke-width:2px,color:#fff;
-    classDef logic fill:#2c7a7b,stroke:#2c7a7b,stroke-width:2px,color:#fff;
-    classDef database fill:#d69e2e,stroke:#b7791f,stroke-width:2px,color:#fff;
-    classDef logging fill:#e53e3e,stroke:#c53030,stroke-width:2px,color:#fff;
+    classDef controller fill:#2b6cb0,stroke:#4a5568,stroke-width:2px,color:#fff;
+    classDef logic fill:#2c7a7b,stroke:#4a5568,stroke-width:2px,color:#fff;
+    classDef database fill:#d69e2e,stroke:#4a5568,stroke-width:2px,color:#fff;
+    classDef logging fill:#e53e3e,stroke:#4a5568,stroke-width:2px,color:#fff;
 
     %% Tier 1: Client Interfaces
     subgraph Tier_1 [Tier 1: Client Interfaces]
@@ -52,12 +57,14 @@ graph LR
     E -.->|Failures| I
     F -.->|Audit Trails| I
 
-    %% Layout Flow Settings
-    style Tier_1 fill:#f7fafc,stroke:#edf2f7,stroke-dasharray: 5 5
-    style Tier_2 fill:#f7fafc,stroke:#edf2f7,stroke-dasharray: 5 5
-    style Tier_3 fill:#f7fafc,stroke:#edf2f7,stroke-dasharray: 5 5
-    style Tier_4 fill:#f7fafc,stroke:#edf2f7,stroke-dasharray: 5 5
+    %% Container Contrast Styles (Fixed for White/Invisible Font Issue)
+    style Tier_1 fill:#1a202c,stroke:#4a5568,stroke-width:1px
+    style Tier_2 fill:#1a202c,stroke:#4a5568,stroke-width:1px
+    style Tier_3 fill:#1a202c,stroke:#4a5568,stroke-width:1px
+    style Tier_4 fill:#1a202c,stroke:#4a5568,stroke-width:1px
 ```
+
+---
 
 A secure, web-based Java banking application that integrates session-based authentication and strict validation algorithms to safely process financial transactions and persist user account details.
 

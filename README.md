@@ -36,7 +36,6 @@ The repository ships with isolated unit testing suites to ensure system integrit
 * **Connection Stability:** Unit tests enforcing that the database connection factory cleanly signs and terminates active pools.
 
 ## System Architecture Diagram (Landscape Format)
-*Paste this code snippet directly into the [Mermaid Live Editor](https://mermaid.live) to render and save your landscape diagram.*
 
 ```mermaid
 graph LR

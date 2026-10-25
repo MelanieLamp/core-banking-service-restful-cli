@@ -1,5 +1,64 @@
 # Core Banking Service RESTful CLI
 
+## System Architecture Diagram (Landscape Format)
+
+```mermaid
+graph LR
+    %% Styling Definitions
+    classDef client fill:#2d3748,stroke:#4a5568,stroke-width:2px,color:#fff;
+    classDef controller fill:#2b6cb0,stroke:#2b6cb0,stroke-width:2px,color:#fff;
+    classDef logic fill:#2c7a7b,stroke:#2c7a7b,stroke-width:2px,color:#fff;
+    classDef database fill:#d69e2e,stroke:#b7791f,stroke-width:2px,color:#fff;
+    classDef logging fill:#e53e3e,stroke:#c53030,stroke-width:2px,color:#fff;
+
+    %% Tier 1: Client Interfaces
+    subgraph Tier_1 [Tier 1: Client Interfaces]
+        A[Web Browser UI<br/>HTML5 / CSS3 / ES6 JS]:::client
+        B[Terminal CLI<br/>Interactive Command Line]:::client
+    end
+
+    %% Tier 2: Controller & Security Layer
+    subgraph Tier_2 [Tier 2: Controller & Security]
+        C[Session-Based<br/>Auth Manager]:::controller
+        D[Application Controllers<br/>MVC Design Pattern]:::controller
+    end
+
+    %% Tier 3: Core Business & Persistence Layer
+    subgraph Tier_3 [Tier 3: Core Business & Persistence]
+        E[Validation Engine<br/>XML Schemas]:::logic
+        F[Isolated Data Access Objects<br/>DAO Architecture]:::logic
+    end
+
+    %% Tier 4: Database Infrastructure & Observability
+    subgraph Tier_4 [Tier 4: Data & Logging]
+        G[Connection Factory<br/>Pooling]:::database
+        H[(PostgreSQL Database<br/>Ledgers & Credentials)]:::database
+        I[Apache Log4j<br/>Audit & Monitoring]:::logging
+    end
+
+    %% Architectural Relationships & Data Flow
+    A -->|HTTP REST| C
+    C -->|Auth State| D
+    B -->|JVM Exec| D
+    
+    D -->|Payload| E
+    E -->|Validation Pass| F
+    
+    F -->|Request SQL Conn| G
+    G -->|Pooled Active Session| H
+    F -->|CRUD Ledger| H
+    
+    %% Async Logging Hooks
+    E -.->|Failures| I
+    F -.->|Audit Trails| I
+
+    %% Layout Flow Settings
+    style Tier_1 fill:#f7fafc,stroke:#edf2f7,stroke-dasharray: 5 5
+    style Tier_2 fill:#f7fafc,stroke:#edf2f7,stroke-dasharray: 5 5
+    style Tier_3 fill:#f7fafc,stroke:#edf2f7,stroke-dasharray: 5 5
+    style Tier_4 fill:#f7fafc,stroke:#edf2f7,stroke-dasharray: 5 5
+```
+
 A secure, web-based Java banking application that integrates session-based authentication and strict validation algorithms to safely process financial transactions and persist user account details.
 
 ## 🚀 Key Features

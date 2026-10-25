@@ -98,17 +98,26 @@ graph LR
 
 ## 🚀 Technical Challenges & Solutions
 
-### 🔀 Challenge: Concurrency and Thread Safety in Financial Ledger Balances
-*   **Problem:** Allowing users to execute transactions simultaneously across both the Web UI and the CLI layer introduced race conditions.
-*   **Solution:** Architected an **Isolated Data Access Object (DAO) pattern** backed by strict transaction isolation levels in PostgreSQL to serialize state updates.
+#Challenge: Concurrency and Thread Safety in Financial Ledger Balances
 
-### 🗄️ Challenge: Inefficient Database Connection Overhead and Lifecycles
-*   **Problem:** Establishing a fresh SQL connection for every independent web request created heavy infrastructure overhead.
-*   **Solution:** Implemented the **Connection Factory Pattern** to instantiate and maintain an efficient connection pool.
+Problem: Allowing users to execute transactions simultaneously across both the Web UI and the CLI layer introduced race conditions, creating a high risk of balance duplication or data corruption.
 
-### 🛡️ Challenge: Exploitation Risks via Malformed Payload Injection
-*   **Problem:** Accepting unvalidated transactional payloads directly from client entry points exposed the backend to security vulnerabilities.
-*   **Solution:** Built a robust, server-side validation engine powered by strict **XML Schemas**.
+Solution: Architected an Isolated Data Access Object (DAO) pattern backed by strict transaction isolation levels in PostgreSQL to serialize state updates. By separating structural execution layers from backend persistence, the application cleanly prevents internal data leaks and enforces deterministic ledger updates during high-throughput workloads.
+
+
+#Challenge: Inefficient Database Connection Overhead and Lifecycles
+
+Problem: Establishing a fresh SQL connection for every independent web request or CLI transaction command created heavy infrastructure overhead, leading to slower response times and connection drops under stress.
+
+Solution: Implemented the Connection Factory Pattern to instantiate and maintain an efficient connection pool. This design pattern automates connection signing, recycling, and termination lifecycles, dropping database initialization latency while guaranteeing that idle connections are safely cleaned up without resource leaks.
+
+
+#Challenge: Exploitation Risks via Malformed Payload Injection
+
+Problem: Accepting unvalidated transactional payloads and financial parameters directly from client entry points exposed the backend to security vulnerabilities and unstable business logic inputs.
+
+Solution: Built a robust, server-side validation engine powered by strict XML Schemas. Incoming data is thoroughly parsed, checked for structural data integrity, and cross-referenced against session-based authentication states before any transaction processing logic occurs, completely isolating the backend from malicious or corrupted inputs.
+
 
 To run the test suite locally:
 ```bash

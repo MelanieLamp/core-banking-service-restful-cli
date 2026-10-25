@@ -1,5 +1,7 @@
 # Core Banking Service RESTful CLI
 
+---
+
 ## System Architecture Diagram 
 
 ```mermaid
@@ -96,10 +98,9 @@ The repository ships with isolated unit testing suites to ensure system integrit
 * **DAO Verification:** Automated tests validating CRUD operations against account objects.
 * **Connection Stability:** Unit tests enforcing that the database connection factory cleanly signs and terminates active pools.
 
-
 ---
 
-## 🚀 Technical Challenges & Solutions
+## Technical Challenges & Solutions
 
 *   **Challenge: Concurrency and Thread Safety in Financial Ledger Balances**
   
@@ -116,6 +117,7 @@ The repository ships with isolated unit testing suites to ensure system integrit
     *   **Problem:** Accepting unvalidated transactional payloads and financial parameters directly from client entry points exposed the backend to security vulnerabilities and unstable business logic inputs.
     *   **Solution:** Built a robust, server-side validation engine powered by strict **XML Schemas**. Incoming data is thoroughly parsed, checked for structural data integrity, and cross-referenced against session-based authentication states before any transaction processing logic occurs, completely isolating the backend from malicious or corrupted inputs.
 
+---
 
 To run the test suite locally:
 ```bash

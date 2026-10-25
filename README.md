@@ -1,7 +1,5 @@
 # Core Banking Service RESTful CLI
 
----
-
 ## System Architecture Diagram 
 
 ```mermaid
